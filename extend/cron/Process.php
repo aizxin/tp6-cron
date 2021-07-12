@@ -25,12 +25,14 @@ class Process
     protected $app;
     protected $schedules;
     protected $server;
+    protected $startedAt;
 
     public function __construct(App $app)
     {
         $this->app = $app;
         $this->schedules = new \SplQueue();
         $this->server = $app->get(Server::class);
+        $this->startedAt = Carbon::now();
     }
 
 
